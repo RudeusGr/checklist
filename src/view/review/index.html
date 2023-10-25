@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="website icon" href="src/public/icon/web-icon.svg">
+        <link rel="stylesheet" href="src/public/css/review.css">
+        <title>Sistema Envases</title>
+    </head>
+    <body class="hero" onload="cleanTable(), getAllReviewData()">
+    <!-- HEADER -->
+        <header>
+            <nav class="nav__container" id="nav">
+                <img src="src/public/img/corona-logo.png" alt="lOGO DE CORONA">
+                <menu class="nav__links ">
+                    <li class="nav__item">
+                        <a href="http://192.168.1.12/corona/dashboard" class="nav__link">Conteo</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Revisiones</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="http://192.168.1.12/corona/admin" class="nav__link">Administración</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="http://192.168.1.12/corona/logout" class="nav__link">Salir</a>
+                    </li>
+                </menu>
+            </nav>
+        </header>
+    <!-- MAIN -->
+        <div class="main">
+            <section class="content">
+                <div class="encabezado">
+                    <label class="title">Revisiones de Envases</label>
+                    <div class="filter-container">
+                        <input type="date" id="dateFilter" />
+                        <a role="button" id="buttonFilter">
+                            <img src="src/public/icon/find.svg" class="icon" alt="Find Icon">
+                        </a>
+                    </div>
+                </div>
+    <!-- RESPONSIVE TABLE -->
+                <div class="custom-table-wrapper">
+                    <div class="labels">
+                        <label class="title">Folio</label>
+                    </div>
+                    <div class="labels">
+                        <label class="title">Supervisor</label>
+                    </div>
+                    <div class="labels">
+                        <label class="title">Ruta</label>
+                    </div>
+                    <div class="labels">
+                        <label class="title">Fecha</label>
+                    </div>
+                    <div class="labels hidden-n-mobile">
+                        <label class="title">Acciones</label>
+                    </div>
+                </div>
+                <div class="custom-table-body" id="custom-table-body"></div>
+            </section>
+        </div>
+        <script src="src/public/js/review.js"></script>
+        <script src="src/public/js/sweetalert.js"></script>
+    </body>
+</html>

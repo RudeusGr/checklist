@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="website icon" href="src/public/icon/web-icon.svg">
+        <link rel="stylesheet" href="src/public/css/dashboard.css">
+        <title>Sistema Envases</title>
+    </head>
+    <body class="hero" onload="setDate(), getAllDashboardData()">
+    <!-- HEADER -->
+        <header>
+            <nav class="nav__container" id="nav">
+                <img src="src/public/img/corona-logo.png" alt="lOGO DE CORONA">
+                <menu class="nav__links ">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Conteo</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="http://192.168.1.12/corona/review" class="nav__link">Revisiones</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="http://192.168.1.12/corona/admin" class="nav__link">Administración</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="http://192.168.1.12/corona/logout" class="nav__link">Salir</a>
+                    </li>
+                </menu>
+            </nav>
+        </header>
+    <!-- MAIN -->
+        <div class="main">
+            <section class="content">
+                <div class="count_inputs">
+                    <label class="title">Revisión de envases</label>
+                    <div class="inputs first-cell">
+                        <label>Folio</label>
+                        <input type="text" class="onlyread" id="folio" disabled />
+                    </div>
+                    <div class="inputs second-cell">
+                        <label>Fecha</label>
+                        <input type="text" class="onlyread" id="date" disabled />
+                    </div>
+                    <div class="inputs third-cell">
+                        <label>Ruta</label>
+                        <select name="route" id="route">
+                            <option selected="selected"></option>
+                        </select>
+                    </div>
+                    <div class="inputs fourth-cell">
+                        <label class="magic">M</label>
+                        <input type="text" class="onlyread" id="operador" disabled />
+                    </div>
+                </div>
+
+                <div class="count_add">
+                    <label class="title">Devolución vacio</label>
+                    <div class="inputs first-cell">
+                        <label>Envase</label>
+                        <select name="returnBottle" id="selectReturnBottle">
+                            <option selected="selected"></option>
+                        </select>
+                    </div>
+                    <div class="inputs second-cell">
+                        <label>Cantidad</label>
+                        <input type="number" id="inputReturnBottle" />
+                    </div>
+                    <div class="inputs button">
+                        <input type="button" value="Agregar" id="buttonReturnBottle" />
+                    </div>
+
+                    <div class="custom-table-wrapper" id="table-return-bottle">
+                        <table>
+                            <tr>
+                                <th>Envase</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="count_add">
+                    <label class="title">Producto faltante</label>
+                    <div class="inputs first-cell">
+                        <label>Envase</label>
+                        <select name="missingBottle" id="selectMissingBottle">
+                            <option selected="selected"></option>
+                        </select>
+                    </div>
+                    <div class="inputs second-cell">
+                        <label>Cantidad</label>
+                        <input type="number" id="inputMissingBottle" />
+                    </div>
+                    <div class="inputs button">
+                        <input type="button" value="Agregar" id="buttonMissingBottle" />
+                    </div>
+
+                    <div class="custom-table-wrapper" id="table-missing-bottle">
+                        <table>
+                            <tr>
+                                <th>Envase</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="count_add">
+                    <label class="title">Devolución lleno</label>
+                    <div class="inputs first-cell">
+                        <label>Producto</label>
+                        <select name="returnProduct" id="selectReturnProduct">
+                            <option selected="selected"></option>
+                        </select>
+                    </div>
+                    <div class="inputs second-cell">
+                        <label>Cantidad</label>
+                        <input type="number" id="inputReturnProduct" />
+                    </div>
+                    <div class="inputs button">
+                        <input type="button" value="Agregar" id="buttonReturnProduct" />
+                    </div>
+
+                    <div class="custom-table-wrapper" id="table-return-product">
+                        <table>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="count_shelter">
+                    <label class="title">Envase resguardo</label>
+                    <div class="inputs first-cell">
+                        <label>Sucursal</label>
+                        <select name="store" id="selectCodeStore">
+                            <option selected="selected"></option>
+                        </select>
+                    </div>
+                    <div class="inputs second-cell">
+                        <label>Tienda</label>
+                        <input type="text" class="onlyread" id="storeName" disabled />
+                    </div>
+                    <div class="inputs third-cell">
+                        <label>Envase</label>
+                        <select name="shelterReturnBottle" id="selectShelterBottle">
+                            <option selected="selected"></option>
+                        </select>
+                    </div>
+                    <div class="inputs fourth-cell">
+                        <label>Cantidad</label>
+                        <input type="number" id="inputShelterBottle" />
+                    </div>
+                    <div class="inputs button">
+                        <input type="button" value="Agregar" id="buttonShelterBottle" />
+                    </div>
+
+                    <div class="custom-table-wrapper" id="table-shelter-bottle">
+                        <table>
+                            <tr>
+                                <th>Sucursal</th>
+                                <th>Envase</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="count_observation">
+                    <label class="title">Observaciones</label>
+                    <div class="inputs first-cell">
+                        <textarea name="observation" id="observation"></textarea>
+                    </div>
+                    <div class="inputs second-cell">
+                        <canvas class="onlyread" id="pizarra">Su navegador no es compatible con canvas</canvas>
+                        <input type="button" value="Limpiar" id="buttonClearCanvas" />
+                    </div>
+                    <div class="inputs button">
+                        <input type="button" value="Guardar" id="save" />
+                    </div>
+                </div>
+            </section>
+
+        <script src="src/public/js/dashboard.js"></script>
+        <script src="src/public/js/sweetalert.js"></script>
+    </body>
+</html>

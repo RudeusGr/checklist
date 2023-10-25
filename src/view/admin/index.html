@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="website icon" href="src/public/icon/web-icon.svg">
+        <link rel="stylesheet" href="src/public/css/admin.css">
+        <title>Sistema Envases</title>
+    </head>
+    <body class="hero" onload="getAllRoutesData()">
+    <!-- HEADER -->
+        <header>
+            <nav class="nav__container" id="nav">
+                <img src="src/public/img/corona-logo.png" alt="lOGO DE CORONA">
+                <menu class="nav__links ">
+                    <li class="nav__item">
+                        <a href="http://192.168.1.12/corona/dashboard" class="nav__link">Conteo</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="http://192.168.1.12/corona/review" class="nav__link">Revisiones</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Administración</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="http://192.168.1.12/corona/logout" class="nav__link">Salir</a>
+                    </li>
+                </menu>
+            </nav>
+        </header>
+    <!-- MAIN -->
+        <div class="main">
+
+    <!-- TABLE -->
+            <section class="content">
+                <div class="option-menu">
+                    <label class="title" id="title">Administración de rutas</label>
+                    <div class="inputs">
+                        <a id="btnroutes">
+                            <label class="button hidden-n-mobile">Rutas</label>
+                            <img role="button" class="visible-n-mobile icon" src="src/public/icon/route.svg" alt="Route Icon">
+                        </a>
+                    </div>
+                    <div class="inputs">
+                        <a id="btnusers">
+                            <label class="button hidden-n-mobile">Usuarios</label>
+                            <img role="button" class="visible-n-mobile icon" src="src/public/icon/user.svg" alt="User Icon">
+                        </a>
+                    </div>
+                    <div class="inputs">
+                        <a id="btnstores">
+                            <label class="button hidden-n-mobile">Tiendas</label>
+                            <img role="button" class="visible-n-mobile icon" src="src/public/icon/store.svg" alt="User Icon">
+                        </a>
+                    </div>
+                    <div class="inputs">
+                        <a id="btn-open-route">
+                            <label class="button hidden-n-mobile">Agregar</label>
+                            <img role="button" class="visible-n-mobile icon" src="src/public/icon/route.svg" alt="Add Route Icon">
+                        </a>
+                        <a id="btn-open-user">
+                            <label class="button hidden-n-mobile">Agregar</label>
+                            <img role="button" class="visible-n-mobile icon" src="src/public/icon/add-user.svg" alt="Add User Icon">
+                        </a>
+                        <a id="btn-open-store">
+                            <label class="button hidden-n-mobile">Agregar</label>
+                            <img role="button" class="visible-n-mobile icon" src="src/public/icon/add-store.svg" alt="Add Store Icon">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="custom-table-wrapper" id="tableroutes">
+                    <div class="labels">
+                        <label class="title">Ruta</label>
+                    </div>
+                    <div class="labels">
+                        <label class="title">Operador</label>
+                    </div>
+                    <div class="labels">
+                        <label class="title">Acciones</label>
+                    </div>
+                </div>
+                <div class="custom-table-body" id="custom-routes-body"></div>
+
+                <div class="custom-table-wrapper" id="tableusers">
+                    <div class="labels">
+                        <label class="title">Usuario</label>
+                    </div>
+                    <div class="labels">
+                        <label class="title">Nombre</label>
+                    </div>
+                    <div class="labels">
+                        <label class="title">Acciones</label>
+                    </div>
+                </div>
+                <div class="custom-table-body" id="custom-users-body"></div>
+
+                <div class="custom-table-wrapper" id="tablestores">
+                    <div class="labels">
+                        <label class="title">Sucursal</label>
+                    </div>
+                    <div class="labels">
+                        <label class="title">Tienda</label>
+                    </div>
+                    <div class="labels">
+                        <label class="title">Acciones</label>
+                    </div>
+                </div>
+                <div class="custom-table-body" id="custom-stores-body"></div>
+            </section>
+
+
+         <!-- MODAL ROUTE -->
+            <section class="modal hidden" id="modalroute">
+                <label class="title">Agregar ruta</label>
+                <form class="main__form">
+                    <div class="input__group">
+                        <input type="text" class="main__input" name="routeName" id="routeName" required />
+                        <label for="routeName" class="main__label">Ruta</label>
+                    </div>
+                    <div class="input__group">
+                        <input type="text" class="main__input" name="routeOperador" id="routeOperador" required />
+                        <label for="routeOperador" class="main__label">Operador</label>
+                    </div>
+                    <input type="submit" class="btn-modal" value="Guardar" name="save-route" id="save-route" />
+                </form>
+            </section>
+            <div class="overlay hidden" id="overlayroute">
+                <input type="button" class="btn-close" value="⨉" id="btn-close-route" />
+            </div>
+
+    <!-- MODAL USER -->
+            <section class="modal hidden" id="modaluser">
+                <label class="title">Agregar usuario</label>
+                <form class="main__form">
+                    <div class="input__group">
+                        <input type="text" class="main__input" name="userUsername" id="userUsername" required />
+                        <label for="userUsername" class="main__label">Usuario</label>
+                    </div>
+                    <div class="input__group">
+                        <input type="text" class="main__input" name="userName" id="userName" required />
+                        <label for="userName" class="main__label">Nombre</label>
+                    </div>
+                    <div class="input__group">
+                        <input type="password" class="main__input" name="userPassword" id="userPassword" required />
+                        <label for="userPassword" class="main__label">Contraseña</label>
+                    </div>
+                    <input type="submit" class="btn-modal" value="Guardar" id="save-user" />
+                </form>
+            </section>
+            <div class="overlay hidden" id="overlayuser">
+                <input type="button" class="btn-close" value="⨉" id="btn-close-user" />
+            </div>
+
+    <!-- MODAL STORE -->
+            <section class="modal hidden" id="modalstore">
+                <label class="title">Agregar tienda</label>
+                <form class="main__form">
+                    <div class="input__group">
+                        <input type="text" class="main__input" name="branchName" id="branchName" required />
+                        <label for="branchName" class="main__label">Sucursal</label>
+                    </div>
+                    <div class="input__group">
+                        <input type="text" class="main__input" name="storeName" id="storeName" required />
+                        <label for="storeName" class="main__label">Tienda</label>
+                    </div>
+                    <input type="submit" class="btn-modal" value="Guardar" name="save-store" id="save-store" />
+                </form>
+            </section>
+            <div class="overlay hidden" id="overlaystore">
+                <input type="button" class="btn-close" value="⨉" id="btn-close-store" />
+            </div>
+        </div>
+
+        <script src="src/public/js/admin.js"></script>
+        <script src="src/public/js/sweetalert.js"></script>
+    </body>
+</html>

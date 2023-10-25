@@ -1,0 +1,196 @@
+@import url(./index.css);
+
+.content {
+    grid-template-rows: repeat(2, auto) 1fr;
+    max-width: 700px;
+}
+
+.option-menu {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: minmax(40px, 1fr) minmax(40px, 1fr) minmax(40px, 1fr) minmax(40px, 1fr);
+    padding: 1.5em 2em;
+    grid-gap: 1em;
+}
+
+#title {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.custom-table-wrapper {
+    padding: 0 2em;
+}
+
+.custom-table-wrapper .title {
+    font-family: Inter-SemiBold, sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.custom-table-wrapper, .custom-table-row {
+    display: grid;
+    grid-template-columns: minmax(50px, 1.3fr) minmax(100px, 2fr) minmax(50px, 1.3fr);
+    grid-gap: .7em;
+}
+
+.custom-table-body {
+    overflow-y: auto;
+    padding: 0 2em;
+}
+
+.custom-table-row {
+    padding: .5em 0;
+    display: grid;
+    grid-auto-rows: minmax(0px, max-content);
+    border-bottom: 2px solid #232;
+}
+
+.labels {
+    overflow-wrap: break-word;
+}
+
+.visible-n-mobile {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+/* FORMULARIO */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 310px ;
+    height: fit-content;
+    background-color: #f2fbffcc;
+    border-radius: 1em;
+    text-align: center;
+    padding: 1.5em 1em;
+    z-index: 3;
+}
+
+<<<<<<< HEAD
+.main__form {
+=======
+@media (max-width: 1199.99px) {
+    .action-cell button {
+        width: 100%;
+        border-radius: 10%/50%;
+    }
+}
+
+/********************** Tabla Usuarios / Rutas*********************/
+
+.option-menu {
+    width: 100%;
+>>>>>>> 6625145e0d6c2ef775b1c58baa6cf7da67d4d8ef
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.input__group {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.8em;
+}
+
+.main__label {
+    position: relative;
+    color: #232323;
+    transition: all 0.1s ease-in-out;
+}
+
+label[for="routeName"],
+label[for="routeOperador"],
+label[for="userUsername"],
+label[for="userName"],
+label[for="userPassword"],
+label[for="branchName"],
+label[for="storeName"] {
+    top: -24px;
+}
+
+.main__input {
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid #232323cc;
+    background: transparent;
+    color: #232323;
+}
+
+.main__input:focus ~ label[for="routeName"],
+.main__input:valid ~ label[for="routeName"],
+.main__input:focus ~ label[for="routeOperador"],
+.main__input:valid ~ label[for="routeOperador"],
+.main__input:focus ~ label[for="userUsername"],
+.main__input:valid ~ label[for="userUsername"],
+.main__input:focus ~ label[for="userName"],
+.main__input:valid ~ label[for="userName"],
+.main__input:focus ~ label[for="userPassword"],
+.main__input:valid ~ label[for="userPassword"],
+.main__input:focus ~ label[for="branchName"],
+.main__input:valid ~ label[for="branchName"],
+.main__input:focus ~ label[for="storeName"],
+.main__input:valid ~ label[for="storeName"] {
+    top: -40px;
+}
+
+.btn-close {
+    position: relative;
+    height: 0px;
+    left: 157px;
+    top: -66px;
+    outline: 0;
+    border: 0;
+    color: #ac0808 !important;
+    background-color: transparent !important;
+    font-size: 20px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000000d;
+    backdrop-filter: blur(3px);
+    z-index: 2;
+}
+
+#btn-open-user {
+    display: none;
+}
+
+#btn-open-store {
+    display: none;
+}
+
+#tableusers {
+    display: none;
+}
+
+#tablestores {
+    display: none;
+}
+
+/*MEDIA QUERIES*/
+@media screen and (max-width: 1009px) {
+    .hidden-n-mobile {
+        display: none;
+    }
+
+    .visible-n-mobile {
+        display: flex;
+    }
+}

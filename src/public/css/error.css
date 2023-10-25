@@ -1,0 +1,80 @@
+@import url(./resets.css);
+
+/********************Componente de 404******************/
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/bg-lg.jpg);
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 80%;
+    height: 80%;
+    background: rgba(10, 0, 0, 0.712);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.img_content {
+    padding-top: 1.5rem;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.img_content img {
+    width: auto;
+    height: auto;
+    max-height: 42vh;
+    margin: auto;
+}
+
+.info {
+    padding-top: 1.5rem;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    background: var(--first-color);
+    color: var(--white-color);
+    border: none;
+    transition: .3s transform;
+}
+
+button:hover {
+    background: var(--second-color);
+    cursor: pointer;
+}
+
+@media (min-width:768px) {
+    .content {
+        flex-direction: row;
+    }
+
+    .img_content {
+        padding-top: unset;
+        height: 100%;
+        width: 50%;
+    }
+
+    .info {
+        height: 100%;
+        width: 50%;
+    }
+}
